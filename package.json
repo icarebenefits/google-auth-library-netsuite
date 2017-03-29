@@ -48,7 +48,7 @@
     "coveralls": "^2.11.15",
     "istanbul": "^0.4.5",
     "browserify": "13.3.x",
-    "browserify-swap": "0.2.x",
+    "browserify-swap": "0.2.2",
     "watchify": "3.8.x",
     "uglify-js": "2.x",
     "keypair": "^1.0.0",
