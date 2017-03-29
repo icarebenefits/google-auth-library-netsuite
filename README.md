@@ -9,8 +9,8 @@ More information about [SuiteScript](http://www.netsuite.com/portal/developers/r
 Clone the repository from GitHub  
 
 ```sh
-git clone git://github.com/icarebenefits/google-auth-library-suitescript
-cd google-auth-library-suitescript
+git clone git://github.com/icarebenefits/google-auth-library-netsuite
+cd google-auth-library-netsuite
 ```
 
 After you clone the repository, download the dependency modules for both the SDK and build tool:
