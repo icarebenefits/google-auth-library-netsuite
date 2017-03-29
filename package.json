@@ -1,0 +1,68 @@
+{
+  "name": "google-auth-library-netsuite",
+  "version": "0.10.0",
+  "author": "iCare Benefits",
+  "description": "Google APIs Authentication Client Library for NetSuite",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "main": "./node_modules/google-auth-library/lib/auth/googleauth",
+  "browser": {
+    "fs": false,
+    "request": "./lib/ss/request.js"
+  },
+  "browserify": { 
+    "transform": [
+      "browserify-swap",
+      "./dist-tools/ss-transform.js"
+    ]
+  },
+  "browserify-swap": {
+    "@packages": [
+      "google-auth-library",
+      "request",
+      "google-p12-pem"
+    ],
+    "bundle": {
+      ".*node_modules\/request\/.+\\.js$": "./lib/ss/request.js",
+      ".*node_modules\/google-p12-pem\/.+\\.js$": "./lib/ss/empty.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icarebenefits/google-auth-library-netsuite.git"
+  },
+  "keywords": [
+    "google",
+    "api",
+    "google apis",
+    "client",
+    "client library",
+    "netsuite",
+    "suitescript"
+  ],
+  "dependencies": {
+    "google-auth-library": "^0.10.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.15",
+    "istanbul": "^0.4.5",
+    "browserify": "13.3.x",
+    "browserify-swap": "0.2.2",
+    "watchify": "3.8.x",
+    "uglify-js": "2.x",
+    "keypair": "^1.0.0",
+    "jshint": "^2.9.4",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.2"
+  },
+  "scripts": {
+    "lint": "jshint lib test",
+    "mocha": "mocha --reporter spec --timeout 4000",
+    "prepare": "npm test && npm run lint && npm version patch",
+    "coverage": "istanbul cover -x 'apis/**' _mocha -- --reporter spec --timeout 4000",
+    "test": "npm run lint && npm run coverage",
+    "coveralls": "istanbul cover -x 'apis/**' _mocha --report lcovonly -- --reporter spec --timeout 4000 && cat coverage/lcov.info | coveralls"
+  },
+  "license": "Apache-2.0"
+}
