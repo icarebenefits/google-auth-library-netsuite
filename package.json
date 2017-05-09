@@ -49,20 +49,22 @@
     "istanbul": "^0.4.5",
     "browserify": "13.3.x",
     "browserify-swap": "0.2.2",
+    "browserify-istanbul": "^2.0.0",
     "watchify": "3.8.x",
     "uglify-js": "2.x",
     "keypair": "^1.0.0",
     "jshint": "^2.9.4",
     "mocha": "^3.2.0",
-    "nock": "^9.0.2"
+    "nock": "^9.0.2",
+    "amdefine": "~1.0.1"
   },
   "scripts": {
     "lint": "jshint lib test",
     "mocha": "mocha --reporter spec --timeout 4000",
     "prepare": "npm test && npm run lint && npm version patch",
-    "coverage": "istanbul cover -x 'apis/**' _mocha -- --reporter spec --timeout 4000",
+    "coverage": "istanbul cover -x 'lib/**' _mocha -- --reporter spec --timeout 4000",
     "test": "npm run lint && npm run coverage",
-    "coveralls": "istanbul cover -x 'apis/**' _mocha --report lcovonly -- --reporter spec --timeout 4000 && cat coverage/lcov.info | coveralls"
+    "coveralls": "istanbul cover -x 'lib/**' _mocha --report lcovonly -- --reporter spec --timeout 4000 && cat coverage/lcov.info | coveralls"
   },
   "license": "Apache-2.0"
 }

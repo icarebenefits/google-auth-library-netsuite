@@ -9,9 +9,9 @@ var license = [
 ].join('\n') + '\n';
 var prefixes = {
   '2': [
-    'define([\'N/xml\', \'N/http\', \'N/https\', \'N/error\'], function(nsXml, nsHttp, nsHttps, nsError) {',
+    'define([\'N/xml\', \'N/http\', \'N/https\', \'N/error\', \'N/log\'], function(nsXml, nsHttp, nsHttps, nsError, nsLog) {',
     '  var NS = {',
-    '    xml: nsXml, http: nsHttp, https: nsHttps, error: nsError,',
+    '    xml: nsXml, http: nsHttp, https: nsHttps, error: nsError, log: nsLog,',
     '    VERSION: 2',
     '  };',
     '  var define = undefined;', 		// hide NetSuite define() function,
@@ -68,7 +68,7 @@ function build(options, callback) {
   }
   // set browserify-swap environment
   process.env.BROWSERIFYSWAP_ENV = 'bundle';
-  process.env.SUITESCRIPT_VERSION = options.version;
+  if (!process.env.SUITESCRIPT_VERSION) process.env.SUITESCRIPT_VERSION = options.version;
   var img = require('insert-module-globals');
   img.vars.process = function () {
     return '{browser:false}';
