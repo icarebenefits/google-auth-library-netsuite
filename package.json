@@ -61,7 +61,7 @@
     "xml2js": "0.4.x"
   },
   "scripts": {
-    "lint": "jshint lib",
+    "lint": "jshint dist-tools lib",
     "mocha": "mocha --reporter spec --timeout 4000 test/ss2/lib",
     "prepare": "npm test && npm run lint && npm version patch",
     "coverage": "istanbul cover -i 'lib/ss2/**' _mocha -- --reporter spec --timeout 4000 test/ss2/lib",

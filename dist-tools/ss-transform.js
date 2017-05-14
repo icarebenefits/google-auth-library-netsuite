@@ -1,5 +1,5 @@
+'use strict';
 var Transform = require('stream').Transform;
-var license = require('./ss-builder').license;
 var fs = require('fs');
 var path = require('path');
 var libDir = path.resolve(__dirname, '..') + '/lib/ss/';
@@ -11,8 +11,9 @@ module.exports = function (file) {
   // console.error('[NS] transforming ' + file);
   var isEntryPoint = !!file.match(/[\/\\]lib[\/\\]auth[\/\\]googleauth\.js$/);
   stream._transform = function (data, encoding, callback) {
-    if (file.indexOf(libDir) == 0) {
-      replace = file.substring(0, libDir.length - 1) + ssVersion + '/' + file.substring(libDir.length);
+    if (file.indexOf(libDir) === 0) {
+      var libSS = file.substring(0, libDir.length - 1) + ssVersion;
+      var replace = libSS + '/' + file.substring(libDir.length);
       if (fs.existsSync(replace)) {
         // console.error('Replacing ' + file + ' with ' + replace);
         data = fs.readFileSync(replace);
@@ -20,7 +21,7 @@ module.exports = function (file) {
       }
     }
 
-    if (process.env.COVERAGE == '1') {
+    if (process.env.COVERAGE === '1') {
       var bi = browserifyIstanbul(file);
       var biData = '';
       bi.on('data', function(chunk) {
