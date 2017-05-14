@@ -54,6 +54,7 @@
     "uglify-js": "2.x",
     "keypair": "^1.0.0",
     "jshint": "^2.9.4",
+    "extend": "^3.0.1",
     "mocha": "^3.2.0",
     "sinon": "^2.2.0",
     "chai": "^3.5.0",
