@@ -1,5 +1,7 @@
 # Google Authentication API Client for SuiteScript
 
+[![Build Status](https://travis-ci.org/ph83nam/google-auth-library-netsuite.svg?branch=master)](https://travis-ci.org/ph83nam/google-auth-library-netsuite) [![Coverage Status](https://coveralls.io/repos/ph83nam/google-auth-library-netsuite/badge.svg?branch=master)](https://coveralls.io/r/ph83nam/google-auth-library-netsuite?branch=master)
+
 [Documentation](https://cloud.google.com/nodejs/getting-started/authenticate-users) and [source code](https://github.com/google/google-auth-library-nodejs) by Google
 
 More information about [SuiteScript](http://www.netsuite.com/portal/developers/resources/suitescript.shtml)
