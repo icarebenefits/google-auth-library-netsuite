@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "6.1"
+  - "node"
+ 
+script:
+  - "npm test;"
+  - "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+
+env:
+  matrix:
+    - COVERAGE=1
+
+sudo: false
