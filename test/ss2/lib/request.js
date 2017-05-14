@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 
 var extend = require('extend');
 
-global.NS = require('../ns');
+global.NS = require('../ns/imports');
 
 global.NS._traceRequest = function(){};
 
