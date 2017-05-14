@@ -64,9 +64,9 @@
     "lint": "jshint lib",
     "mocha": "mocha --reporter spec --timeout 4000 test/ss2/lib",
     "prepare": "npm test && npm run lint && npm version patch",
-    "coverage": "istanbul cover -i 'lib/**' _mocha -- --reporter spec --timeout 4000 test/ss2/lib",
+    "coverage": "istanbul cover -i 'lib/ss2/**' _mocha -- --reporter spec --timeout 4000 test/ss2/lib",
     "test": "npm run lint && npm run coverage",
-    "coveralls": "istanbul cover -i 'lib/**' _mocha --report lcovonly -- --reporter spec --timeout 4000 test/ss2/lib && cat coverage/lcov.info | coveralls"
+    "coveralls": "istanbul cover -i 'lib/ss2/**' _mocha --report lcovonly -- --reporter spec --timeout 4000 test/ss2/lib && cat coverage/lcov.info | coveralls"
   },
   "license": "Apache-2.0"
 }

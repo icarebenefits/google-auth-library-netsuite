@@ -6,6 +6,8 @@ var extend = require('extend');
 
 global.NS = require('../ns');
 
+global.NS._traceRequest = function(){};
+
 var request = require('../../../lib/ss2/request.js');
 
 describe('request', function() {
@@ -57,4 +59,21 @@ describe('request', function() {
             expect(stub.called).to.equal(true);
         });
     }
+
+    it ('it should report SuiteScriptError', function() {
+        var nsResponse = {
+            code: 400,
+            headers: {
+                'Server': 'Sinon Stub'
+            },
+            body: 'stub'
+        };
+        var stub = sinon.stub().returns(nsResponse);
+        NS.https.request = stub;
+
+        var spy = sinon.spy(request);
+        spy('https://localhost', {}, function(error, response, body) {
+            expect(error).to.be.a('error');
+        });
+    })
 });
